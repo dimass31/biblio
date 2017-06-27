@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="section-top">
+         <img src="{% static 'img/slider0.jpg' %}" class="img-responsive">
+    </div>
+    <div class="section section1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Новые поступления
+                    </h1>
+                </div>
+                {% for book in books %}
+                    <div class="col-lg-3">
+                        <div class="product-item">
+                            <h4>{{ book.title}}</h4>
+                            <h5>Автор: {{ book.authors.first_name}}</h5>
+                            <div>
+                                <img src="/" class="img-responsive">
+                            </div>
+                            <p>
+                                Издательство: {{ book.publisher.name }}
+                            </p>
+                            <a href="{% url "books" %}">читать</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="section section-delivery">
+        <div>
+            <h3></h3>
+        </div>
+    </div>
+    <div class="section section2 phones-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                       Классическая литература
+                    </h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="section section3 laptops-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-center">
+                        Зарубежная литература
+                    </h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
